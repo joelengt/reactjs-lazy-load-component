@@ -18,7 +18,7 @@ app.prepare()
       console.log('params', params)
       console.log('query', query)
 
-      app.render(req, res, '/fruit', Object.assign(params, query))
+      return app.render(req, res, '/fruit-item', Object.assign(params, query))
     })
 
     server.get('*', (req, res) => {
