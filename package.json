@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "PORT=4444 NODE_ENV=production node server.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
