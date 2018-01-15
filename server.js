@@ -12,6 +12,7 @@ app.prepare()
     const server = express()
 
     server.get('/fruit/:id', (req, res) => {
+      console.log('Reading value ssr?')
       let params = req.params
       let query = req.query
 
@@ -19,6 +20,17 @@ app.prepare()
       console.log('query', query)
 
       return app.render(req, res, '/fruit-item', Object.assign(params, query))
+    })
+
+    server.get('/bunny', (req, res) => {
+      console.log('Reading value ssr?')
+      let params = req.params
+      let query = req.query
+
+      console.log('params', params)
+      console.log('query', query)
+
+      return app.render(req, res, '/sample', Object.assign(params, query))
     })
 
     server.get('*', (req, res) => {

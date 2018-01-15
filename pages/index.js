@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import Melons from '../components/melons'
-import * as Cookies from "js-cookie";
+import Link from 'next/link'
 
 class Index extends React.Component {
   constructor(props) {
@@ -11,42 +11,55 @@ class Index extends React.Component {
   }
 
   componentDidMount () {
-    console.log('DOM READED!!', Cookies.get('fullname'))
-
-    if (Cookies.get('fulname') === undefined) {
-      Cookies.set('fulname', 'joel Gonzales :D')
-    }
-
-    this.setState({
-      fulname: Cookies.get('fulname')
-    })
-
+    console.log('URLÇ? ', this.props.url)
   }
 
   componentWillUnmount () {
     console.log('Final data!')
+    console.log('URLÇ? ', this.props.url)
+
   }
 
   eventClick() {
-    console.log('Data??')
-    console.log('DOM READED INSIDE!!', Cookies.get('fullname'))
-    this.setData()
+    console.log('Event on click fron this custom Link')
   }
 
   setData() {
-    Cookies.set('fulname', 'joelengt')
-    this.setState({
-      fulname: Cookies.get('fulname')
-    })
+    // this.props.url.back()
   }
 
   render() {
     return (
-      <div className="Index">
-        <h2>Fruit List { this.state.fulname }</h2>
-        <Melons/>
-        <input type="text"/>
-        <button onClick={this.eventClick}>Save</button>
+      <div>hello
+        <div>
+          <Link prefetch href="/sample">
+            <a> go to sample</a>
+          </Link>
+        </div>
+
+        <div>
+          <Link href={{ pathname: '/sample', query: { name: 'Zeit' } }}>
+            <a>go to sample with query</a>
+          </Link>
+        </div>
+
+        <div>
+          <Link href="/sample" replace>
+            <a>go to sample replace</a>
+          </Link>
+        </div>
+
+        <div>
+          <Link href="/sample">
+            <div onClick={ this.eventClick }>event on click ?</div>
+          </Link>
+        </div>
+
+        <div>
+          <Link href="/checkout" replace>
+            <a>go to checkout</a>
+          </Link>
+        </div>
       </div>
     )
   }

@@ -4,7 +4,7 @@ const glob = require('glob');
 
 module.exports = {
   webpack: (config, {dev}) => {
-
+    
     config.node = {
       fs: 'empty',
       net: 'empty',
