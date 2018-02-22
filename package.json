@@ -48,6 +48,7 @@
     "react-cookie": "^2.1.2",
     "react-cookies": "^0.1.0",
     "react-dom": "^15.6.1",
+    "react-lazyload": "^2.3.0",
     "react-mapbox-gl": "^2.0.6",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
